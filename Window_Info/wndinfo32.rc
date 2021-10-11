@@ -1,0 +1,93 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+// Defines
+//
+
+#define ICO_ENABLE      100
+#define ICO_DISABLE     101
+#define IDD_DIALOG      1000
+#define IDC_HOTKEY      1001
+#define IDC_CHECK       1002
+#define IDR_MENU        2000
+#define ID_MAIN_ENABLE  2001
+#define ID_MAIN_SETTING 2002
+#define ID_MAIN_EXIT    2003
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icons
+//
+
+ICO_ENABLE ICON "wndinfo32.ico"
+ICO_DISABLE ICON "wndinfo32_disabled.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU
+BEGIN
+    POPUP "MAIN"
+    BEGIN
+        MENUITEM "Активно",                     ID_MAIN_ENABLE
+        MENUITEM "Настройки",                   ID_MAIN_SETTING
+        MENUITEM SEPARATOR
+        MENUITEM "Выход",                       ID_MAIN_EXIT
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG DIALOGEX 0, 0, 143, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP| WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_TOPMOST | WS_EX_TOOLWINDOW 
+CAPTION "Настройки..."
+FONT 8, "MS Shell Dlg", 0, 0
+BEGIN
+   CONTROL "Отмена", IDCANCEL, BUTTON, BS_PUSHBUTTON | WS_CHILD | WS_VISIBLE |
+        WS_TABSTOP, 86, 55, 50, 14
+   CONTROL "Применить", IDOK, BUTTON, BS_DEFPUSHBUTTON | WS_CHILD |
+        WS_VISIBLE | WS_TABSTOP, 32, 55, 50, 14
+   CONTROL "", IDC_HOTKEY, "msctls_hotkey32", 0x50810000, 7, 17, 125, 14
+   CONTROL "Горячая клавиша активации:", -1, STATIC, SS_LEFT | WS_CHILD |
+        WS_VISIBLE | WS_GROUP, 7, 7, 101, 8
+   CONTROL "Автозапуск при старте системы", IDC_CHECK, BUTTON,
+        BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 7, 39, 125, 10
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+BLOCK "StringFileInfo"
+{
+	BLOCK "000904b0"
+	{
+		VALUE "Comments", "Application show window info"0
+		VALUE "CompanyName", "Fangorn Wizards Lab"0
+		VALUE "FileDescription", "WndInfo32 Application"0
+		VALUE "FileVersion", "1.0"0
+		VALUE "InternalName", "WndInfo32"0
+		VALUE "LegalCopyright", "© Fangorn Wizards Lab 1998 - 2007"0
+		VALUE "OriginalFilename", "WndInfo32.exe"0
+		VALUE "ProductName", "Window Info"0
+		VALUE "ProductVersion", "1.0"0
+	}
+}
+
+BLOCK "VarFileInfo"
+{
+	VALUE "Translation", 0x0009 0x04B0
+}
+}
